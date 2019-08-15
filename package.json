@@ -12,7 +12,6 @@
   ],
   "scripts": {
     "postversion": "npm publish --access public && git push && git push --tags",
-    "setup": "node ./scripts/setup"
   },
   "files": [
     "index.js",
@@ -25,9 +24,5 @@
   "repository": "git://github.com/kwsites/cms-images.git",
   "peerDependencies": {
     "lodash": "^4"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "less": "^3.9.0",
   }
 }
