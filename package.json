@@ -15,10 +15,7 @@
   },
   "files": [
     "index.js",
-    "lib/**/*.*",
-    "public/css/*.less",
-    "public/js/*.js",
-    "views/**/*.*"
+    "lib/**/*.*"
   ],
   "license": "MIT",
   "repository": "git://github.com/kwsites/cms-images.git",
