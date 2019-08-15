@@ -1,0 +1,13 @@
+{%- set layout = data.widget.layout -%}
+
+{%- if not layout -%}
+   {%- set imageCount = data.widget._pieces.length or 1 -%}
+   {%- set layout = data.options.multiRenderer if (imageCount > 1 and data.options.multiRenderer)
+                    else data.options.renderer -%}
+{%- endif -%}
+
+{%- if layout -%}
+   {%- extends layout + '.html' -%}
+{%- else -%}
+   {%- extends 'gallery.html' -%}
+{%- endif -%}

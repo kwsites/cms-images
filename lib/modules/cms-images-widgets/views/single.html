@@ -1,0 +1,21 @@
+{%- set piece = data.widget._pieces | first -%}
+{%- if not piece -%}
+   ... NO IMAGE SELECTED ...
+{%- else -%}
+   {%- set image = piece.item or piece -%}
+   {%- set relationship = piece.relationship -%}
+   {%- set imageSrc = apos.attachments.url(image.attachment, { size: data.options.size, crop: relationship }) -%}
+   {%- set href = data.widget.href -%}
+   {%- set width = data.widget.width -%}
+
+   <div class="block cms-gallery-single">
+      {%- if href -%}<a href="{{ href }}">{%- endif -%}
+      <img
+         alt="{{ image.title }}"
+         src="{{ imageSrc }}"
+         style="{%- if width == 'fill' -%} width: 100%; {%- else -%} max-width: 100%; {%- endif -%}"
+      >
+      {%- if href -%}</a>{%- endif -%}
+   </div>
+{%- endif -%}
+

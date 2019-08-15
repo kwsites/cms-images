@@ -1,0 +1,50 @@
+<div class="cms-image-gallery" data-gallery="gallery">
+
+   {%- set pieces = data.widget._pieces -%}
+
+   <ul class="cms-gallery-slides" data-col-count="{{ pieces | galleryItemsPerRow }}">
+      {%- for entry in pieces -%}
+      {%- set image = entry.item or entry -%}
+      {%- set relationship = entry.relationship -%}
+      {%- set imageSrc = apos.attachments.url(image.attachment, { size: data.options.size, crop: relationship }) -%}
+      {%- set thumbSrc = apos.attachments.url(image.attachment, { size: 'two-thirds', crop: relationship }) -%}
+
+      <li class="cms-gallery-thumbnail image-container"
+          style="background-image: url('{{ thumbSrc }}') {{ relationship | focalPoint }}"
+          data-full-image="{{ imageSrc }}"
+          data-height="{{ image.attachment.height }}"
+          data-width="{{ image.attachment.width }}"
+          data-portrait="{{ image.attachment.portrait }}"
+          data-description="{{ image.description }}"
+          data-image-id="{{ image._id }}">
+         <a href="{{ imageSrc }}">
+            <img
+               alt="{{ image.title }}"
+               src="{{ thumbSrc }}"
+            >
+         </a>
+      </li>
+      {%- endfor -%}
+   </ul>
+
+   <div class="cms-gallery-lightbox">
+      <div class="cms-lightbox-shield" data-action="close"></div>
+      <div class="cms-lightbox-content">
+         <div class="cms-gallery-image"></div>
+         <div class="cms-gallery-nav">
+            <!--<a data-action="play"><i class="fa fa-play"></i></a>-->
+            <a data-action="back"><i class="fa fa-angle-left"></i></a>
+            <a data-action="next"><i class="fa fa-angle-right"></i></a>
+            <a class="pull-right" data-action="close"><i class="fa fa-times"></i></a>
+
+            {%- if data.widget._editable %}
+            <label class="pull-right"><input type="checkbox" data-action="focal-point-editor"> focal point edit mode</label>
+            {%- endif %}
+         </div>
+         <div class="cms-gallery-actions">
+            <a data-action="back"><i class="fa fa-angle-left"></i></a>
+            <a data-action="next"><i class="fa fa-angle-right"></i></a>
+         </div>
+      </div>
+   </div>
+</div>

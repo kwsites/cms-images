@@ -1,0 +1,64 @@
+
+@keyframes flash {
+   from {
+      filter: brightness(1);
+   }
+
+   50% {
+      filter: brightness(3);
+   }
+
+   to {
+      filter: brightness(1);
+   }
+}
+
+.cms-gallery-lightbox {
+
+   label {
+      cursor: pointer;
+      margin-right: @padding-size;
+   }
+
+   img {
+
+      &.updating {
+         filter: grayscale(1);
+      }
+
+      &.updated {
+         animation-duration: @transition-short;
+         animation-name: flash;
+      }
+   }
+
+}
+
+.apostrophe-images-chooser {
+
+   [data-choices].ui-sortable {
+
+      .grid();
+      .grid-template-columns(1fr 1fr 1fr);
+
+      .apos-chooser-choice {
+         .apos-chooser-controls {
+            white-space: normal;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity linear 200ms;
+         }
+
+         &:hover .apos-chooser-controls {
+            opacity: 1;
+            pointer-events: all;
+         }
+      }
+
+      .apos-button--in-group:hover {
+         background: rgba(0, 0, 0, 0.1);
+      }
+
+   }
+
+}
