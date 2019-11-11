@@ -4,7 +4,14 @@
 {%- else -%}
    {%- set image = piece.item or piece -%}
    {%- set relationship = piece.relationship -%}
-   {%- set imageSrc = apos.attachments.url(image.attachment, { size: data.options.size, crop: relationship }) -%}
+   {%- set imageSrc = apos.attachments.url(
+         image.attachment,
+         {
+            size: data.widget.size or data.options.size,
+            crop: relationship
+         }
+      )
+   -%}
    {%- set href = data.widget.href -%}
    {%- set width = data.widget.width -%}
 
