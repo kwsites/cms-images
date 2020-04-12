@@ -10,9 +10,6 @@
       "email": "steve@mydev.co"
     }
   ],
-  "scripts": {
-    "postversion": "npm publish --access public && git push && git push --tags"
-  },
   "files": [
     "index.js",
     "lib/**/*.*"
