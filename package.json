@@ -18,5 +18,8 @@
   "repository": "git://github.com/kwsites/cms-images.git",
   "peerDependencies": {
     "lodash": "^4"
+  },
+  "scripts": {
+    "postversion": "npm publish && git push && git push --tags"
   }
 }
