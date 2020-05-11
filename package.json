@@ -1,7 +1,6 @@
 {
   "name": "@kwsites/cms-images",
   "description": "Configurable image gallery compatible with the apostrophe cms",
-  "version": "1.5.2",
   "private": false,
   "author": "Steve King <steve@mydev.co>",
   "contributors": [
