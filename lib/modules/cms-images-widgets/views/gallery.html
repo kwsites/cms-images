@@ -2,7 +2,12 @@
 
    {%- set pieces = data.widget._pieces -%}
 
-   <ul class="cms-gallery-slides" data-col-count="{{ pieces | galleryItemsPerRow }}">
+   <ul class="cms-gallery-slides" data-col-count="
+   {%- if data.widget.colCount -%}
+      {{ data.widget.colCount }}
+   {%- else -%}
+      {{ pieces | galleryItemsPerRow }}
+   {%- endif -%}">
       {%- for entry in pieces -%}
       {%- set image = entry.item or entry -%}
       {%- set relationship = entry.relationship -%}
