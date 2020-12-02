@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "repository": "git://github.com/kwsites/cms-images.git",
-  "peerDependencies": {
+  "dependencies": {
     "lodash": "^4"
   }
 }
