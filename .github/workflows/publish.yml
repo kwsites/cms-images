@@ -9,7 +9,9 @@ jobs:
    publish:
       runs-on: ubuntu-latest
       steps:
-         - uses: actions/checkout@master
+         -  uses: actions/checkout@v2
+            with:
+               ref: main
 
          - name: Cache node_modules
            id: cache-modules
@@ -23,7 +25,7 @@ jobs:
            run: npm install
 
          - name: Publish
-           if: github.ref == 'refs/heads/master'
+           if: github.ref == 'refs/heads/main'
            uses: mikeal/merge-release@master
            env:
               GITHUB_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
