@@ -5,6 +5,27 @@
       cursor: pointer;
    }
 
+   @media @mobile  {
+      &.mobile-carousel {
+         position: relative;
+         pointer-events: none;
+
+         .fade-out-slide {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+         }
+
+         .cms-gallery-slides {
+            .grid-template-columns(1fr);
+         }
+
+         .cms-gallery-thumbnail:nth-child(n+2) {
+            display: none;
+         }
+      }
+   }
+
    .cms-gallery-slides {
       .grid();
       .grid-gap(0.5rem);
@@ -171,5 +192,3 @@
    }
 
 }
-
-
